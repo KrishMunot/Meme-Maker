@@ -53,4 +53,17 @@
     </div>
   </div>
 </body>
+<script>
+ function textChangeListener (evt) {
+      var id = evt.target.id;
+      var text = evt.target.value;
+
+      if (id == "topLineText") {
+        window.topLineText = text;
+      } else {
+        window.bottomLineText = text;
+      }
+
+      redrawMeme(window.imageSrc, window.topLineText, window.bottomLineText);
+    }
 </html>
