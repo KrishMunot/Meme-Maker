@@ -66,4 +66,13 @@
 
       redrawMeme(window.imageSrc, window.topLineText, window.bottomLineText);
     }
+  function redrawMeme(image, topLine, bottomLine) {
+      // Get Canvas2DContext
+      var canvas = document.querySelector('canvas');
+      var ctx = canvas.getContext("2d");
+
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+      if (topLine) { drawMessage(canvas, ctx, 'top', topLine); }
+      if (bottomLine) { drawMessage(canvas, ctx, 'bottom', bottomLine); }
+    }
 </html>
