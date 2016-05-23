@@ -75,4 +75,26 @@
       if (topLine) { drawMessage(canvas, ctx, 'top', topLine); }
       if (bottomLine) { drawMessage(canvas, ctx, 'bottom', bottomLine); }
     }
+    function drawMessage(canvas, ctx, position, message) {
+      var fontSize = 30;
+      var padding = 10;
+      var verticalPosition = function() {
+        if (position === 'top') {
+          return fontSize + padding;
+        } else {
+          return canvas.height - padding;
+        }
+      };
+      ctx.font = fontSize + 'pt Impact';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = 'white';
+      ctx.fillText(message, canvas.width / 2, verticalPosition());
+      ctx.strokeStyle = 'black';
+      ctx.lineWidth = fontSize/10;
+      ctx.strokeText(message, canvas.width / 2, verticalPosition());
+    }
+
+    function saveFile() {
+      window.open(document.querySelector('canvas').toDataURL());
+    }
 </html>
