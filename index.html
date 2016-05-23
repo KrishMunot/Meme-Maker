@@ -97,4 +97,28 @@
     function saveFile() {
       window.open(document.querySelector('canvas').toDataURL());
     }
+    function handleFileSelect(evt) {
+      var canvasWidth = 500;
+      var canvasHeight = 500;
+      var file = evt.target.files[0];
+
+
+
+      var reader = new FileReader();
+      reader.onload = function(fileObject) {
+        var data = fileObject.target.result;
+
+        var image = new Image();
+        image.onload = function() {
+
+          window.imageSrc = this;
+          redrawMeme(window.imageSrc, null, null);
+        };
+
+        image.src = data;
+        console.log(fileObject.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+
 </html>
