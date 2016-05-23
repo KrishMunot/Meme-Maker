@@ -66,6 +66,7 @@
 
       redrawMeme(window.imageSrc, window.topLineText, window.bottomLineText);
     }
+    
   function redrawMeme(image, topLine, bottomLine) {
       // Get Canvas2DContext
       var canvas = document.querySelector('canvas');
@@ -103,7 +104,7 @@
       var file = evt.target.files[0];
 
 
-
+      // Create an image object
       var reader = new FileReader();
       reader.onload = function(fileObject) {
         var data = fileObject.target.result;
@@ -115,6 +116,7 @@
           redrawMeme(window.imageSrc, null, null);
         };
 
+        // Set image data to background image.
         image.src = data;
         console.log(fileObject.target.result);
       };
